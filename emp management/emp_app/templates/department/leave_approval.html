@@ -1,0 +1,46 @@
+{% extends 'department/dep_deshboard.html' %}
+{% load static %}
+
+{% block title %}
+<title> Pending leave </title>
+{% endblock %}
+
+{% block content %}
+
+<div style='margin:20px 10px'>
+    <table class='table table-striped table-hover' >
+        <thead>
+        <tr>
+            <th> Sr.No</th>
+            <th> Emp Name</th>
+            <th> Department</th>
+            <th> Total Apply leave </th>
+            <th> Leave purpose</th>
+            <th> Apply From</th>
+            <th> Apply To </th>
+            <th> Status</th>
+            <th> Leave Approved </th>
+            <th> Leave Reject </th>
+        </tr>
+        <thead>
+        {% for i in data %}
+        <tbody>
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.department}}</td>
+            <td>{{i.applyleave}}</td>
+            <td>{{i.leavepurpose}}</td>
+            <td>{{i.leavedatefrom}}</td>
+            <td>{{i.leavedateto}}</td>
+            <td>{{i.leavestatus}}</td>    
+            <td> <a href="/approved1/{{i.id}}/">Approved </a> </td>
+            <td> <a href="/rejectleave/{{i.id}}/">Delete</a> </td>
+        </tr>
+        <tbody>
+        {% endfor %}
+    </table>
+   </div>
+
+{% endblock %}
+</html>

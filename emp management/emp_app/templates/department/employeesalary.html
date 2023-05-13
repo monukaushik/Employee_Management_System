@@ -1,0 +1,50 @@
+{% extends 'department/dep_deshboard.html' %}
+{% load static %}
+
+{% block title %}
+<title> Employee salary Page </title>
+{% endblock %}
+
+{% block content %}
+
+       <div style='margin:20px 10px'>
+        <table class='table table-striped table-hover' >
+            <thead>
+            <tr>
+                <th> Sr.No</th>
+                <th> Emp Name</th>
+                <th> Emp Image </th>
+                <th> Emp Email</th>
+                <th> Emp Department</th>
+                <th> Emp ID </th>
+                <th> Emp Degination </th>
+                <th> Emp Joining Date</th>
+                <th> Emp Contact No </th>
+                <th> Emp Address </th>
+                <th> Emp Salary</th>
+            </tr>
+            <thead>
+            {% for i in salarydetail %}
+            <tbody>
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.employeename}}</td>
+                {% if i.employeepic %}
+                <td><img src="{{i.employeepic.url}}" width='50px' height='50px'> </td>
+                {% endif %}
+                <td>{{i.email}}</td>
+                <td>{{i.department}}</td>
+                <td>{{i.employeeid}}</td>
+                <td>{{i.employeedegination}}</td>
+                <td>{{i.joiningdate}}</td>
+                <td>{{i.employeecontect}}</td>
+                <td>{{i.employeeaddress}}</td>
+                <td>{{i.employeesalary}}</td>
+            </tr>
+            <tbody>
+            {% endfor %}
+        </table>
+       </div>
+
+{% endblock %}
+</html>

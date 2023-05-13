@@ -1,0 +1,116 @@
+{% extends 'department/dep_deshboard.html' %}
+{% load static %}
+
+{% block title %}
+<title> New Employee Page </title>
+{% endblock %}
+
+{% block content %}
+
+<div style='margin-top:10px;'>
+<div class='container'>
+    <form action="{% url 'updated' idd %}" method='POST' enctype='multipart/form-data'> 
+        {% csrf_token %}
+    <div style='text-align:center; font-size:30px;'>
+        <p> Update Employee Detail </p>
+    </div>
+    <div class='row'>
+        <div class='col-md-6'>
+            <label for="empname" class="form-label">User Name</label>
+            <input type="text" class="form-control" name='empname' placeholder='Enter employee name' style='margin-bottom:10px;' value="{{userdata.username}}">
+        </div>
+        <div class='col-md-6'>
+            <label for="empname" class="form-label">Employee Name</label>
+            <input type="text" class="form-control" name='empname' placeholder='Enter employee name' style='margin-bottom:10px;'>
+        </div>
+    </div> 
+    <div class='row'>
+        <div class='col-md-6'>
+            <label for="fname" class="form-label">Father Name</label>
+            <input type="text" class="form-control" name='fname' placeholder='Enter father name' style='margin-bottom:10px;'>
+        </div>
+        <div class='col-md-6'>
+            <label for="mname" class="form-label">Mother Name</label>
+            <input type="text" class="form-control" name='mname' placeholder='Enter mother name' style='margin-bottom:10px;'>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-6'>
+            <label for="department" class="form-label">Department</label>
+            <input type="text" class="form-control" name='department' placeholder='Enter department name' style='margin-bottom:10px;' value="{{userdata.department}}">
+            {% comment %} <select class="form-select" aria-label="Default select example" name='department' style='margin-bottom:10px;' >
+                <option selected>Select department name</option>
+                <option value="HR">HR</option>
+                <option value="Admin">Admin</option>
+                <option value="Production">Production</option>
+                <option value="Housekeeping">Housekeeping</option>
+                <option value='Pantry'>Pantry</option>
+              </select> {% endcomment %}
+        </div>
+        <div class='col-md-6'>
+            <label for="empemail" class="form-label">Employee Email</label>
+            <input type="email" class="form-control" name='empemail' placeholder='Enter email hare' style='margin-bottom:10px;' readonly value="{{userdata.email}}">
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-6'>
+            <label for="empdeg" class="form-label">Employee Degination</label>
+            <select class="form-select" aria-label="Default select example" name='empdeg' style='margin-bottom:10px;' >
+                <option selected>Selecct employee degination</option>
+                <option value="HOD">HOD</option>
+                <option value="Manager">Manager</option>
+                <option value="Teamlead">Teamlead</option>
+                <option value="Execetive">Execetive</option>
+                <option value="Sr.Developer">Sr.Developer</option>
+                <option value="Developer">Developer</option>
+                <option value="jr.Developer">Jr.Developer</option>
+                <option value='Pantry Boy'>Pantry Boy</option>
+                <option value='Houskeeping Boy'>Houskeeping Boy</option>
+              </select>
+        </div>
+        <div class='col-md-6'>
+            <label for="empid" class="form-label">Employee ID</label>
+            <input type="text" class="form-control" name='empid' placeholder='Enter employee id' style='margin-bottom:10px;'>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-6'>
+            <label for="empleave" class="form-label">Employee Leave</label>
+            <input type="number" class="form-control" name='empleave' placeholder='Enter employee leave' style='margin-bottom:10px;'>
+        </div>
+        <div class='col-md-6'>
+            <label for="empsalary" class="form-label">Employee Salary</label>
+            <input type="number" class="form-control" name='empsalary' placeholder='Enter employee salary' style='margin-bottom:10px;'>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-6'>
+            <label for="empcontact" class="form-label">Emp Contect</label>
+            <input type="number" class="form-control" name='empcontact' placeholder='Enter contact no' style='margin-bottom:10px;'>
+        </div>
+        <div class='col-md-6'>
+            <label for="empaddress" class="form-label">Employee Address</label>
+            <input type="text" class="form-control" name='empaddress' placeholder='Enter employee address' style='margin-bottom:10px;'>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-6'>
+            <label for="empjoiningdate" class="form-label">Employee Joining Date</label>
+            <input type="date" class="form-control" name='empjoiningdate' placeholder='Enter employee joining date' style='margin-bottom:10px;'>
+        </div>
+        <div class='col-md-6'>
+            <label for="emppic" class="form-label">Emp Image</label>
+            <input type="file" class="form-control" name='emppic' placeholder='Upload pic hare' style='margin-bottom:10px;'>
+        </div>
+    </div>
+    
+    <div style='margin-top:10px;'>
+        <button type='submit' class='btn btn-primary' > Submit </button>
+    </div>
+</form>
+
+</div>
+</div>
+
+{% endblock %}
+</html>

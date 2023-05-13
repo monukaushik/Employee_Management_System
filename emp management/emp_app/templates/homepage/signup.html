@@ -1,0 +1,63 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Signup page</title>
+{% endblock %}
+
+{% block link %}
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<section class="vh-100" style="background-color: antiquewhite;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="{% static 'ems.png'%}"
+                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <form action='' method='POST' enctype='multipart/form-data'>
+                  {% csrf_token %}
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                    <span class="h3 fw-bold mb-0">Register Now</span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" name='username' placeholder='Enter username'>
+                  </div>
+                  <div class="mb-3">
+                      <label for="email" class="form-label">User Email</label>
+                      <input type="email" class="form-control" name='email' placeholder='Enter user email'>
+                    </div>
+                  <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name='password' placeholder='Enter password'>
+                  </div>  
+                  <div class="mb-3">
+                      <label for="cpassword" class="form-label">Confirm Password</label>
+                      <input type="password" class="form-control" name='cpassword' placeholder='Enter confirm password'>
+                    </div>                  
+                  <div style='display: flex; place-content: space-between;'>
+                      <button type="submit" class="btn btn-dark text-color-white ">Submit</button>
+                      <a href='/' type="submit" class="btn btn-dark text-color-white ">Back</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+</html>
